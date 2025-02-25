@@ -1,0 +1,317 @@
+<p>employee-spouse works!</p>
+
+<h2 class="text-xl font-bold">Spouse Information</h2>
+<br>
+
+<form class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4" [formGroup]="employeeSpouseInfo" >
+    
+    <!--name-->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sname">
+            Name:
+          </label>
+        </div>
+
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sname"   formControlName="sname">
+        </div>
+            
+    </div>
+    
+    <!--Occupation-->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sOccupation">
+            Occupation:
+          </label>
+        </div>
+
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sOccupation"   formControlName="sOccupation">
+        </div>
+            
+    </div>
+
+    <!-- Sex -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sSex">
+            Sex:
+          </label>
+        </div>
+
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sSex"   formControlName="sSex">
+        </div>
+            
+    </div>
+
+     <!-- Blood Group -->
+     <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sBloodGroup">
+            Blood Group:
+          </label>
+        </div>
+
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sBloodGroup"   formControlName="sBloodGroup">
+        </div>
+            
+    </div>
+
+    <!-- Mobile No: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sMobileNo">
+            Mobile No:
+          </label>
+        </div>
+
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sMobileNo"   formControlName="sMobileNo">
+        </div>
+            
+    </div>
+
+    <!-- Email: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sEmail">
+            Email:
+          </label>
+        </div>
+
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sEmail"   formControlName="sEmail">
+        </div>
+            
+    </div>
+
+     <!-- Religion: -->
+     <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sReligion">
+            Religion:
+          </label>
+        </div>
+
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sReligion"   formControlName="sReligion">
+        </div>
+            
+    </div>
+
+    <!-- Date of Birth: -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sDateofBirth">
+            Date of Birth:
+          </label>
+        </div>
+
+        <div>
+          <input type="date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sDateofBirth"   formControlName="sDateofBirth">
+        </div>
+            
+    </div>
+
+    <!-- Nationality: -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sNationality">
+            Nationality: <span class="text-red-500 text-sm">*</span>
+          </label>
+        </div>
+
+        <div>
+          <input  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sNationality"   formControlName="sNationality">
+        </div>
+            
+    </div>
+
+    <!-- Passport No: -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sPassportNo">
+            Passport No:
+          </label>
+        </div>
+
+        <div>
+          <input  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sPassportNo"   formControlName="sPassportNo">
+        </div>
+            
+    </div>
+
+    <!-- Passport Issue Date: -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sPassportIssueDate">
+            Passport Issue Date:
+          </label>
+        </div>
+
+        <div>
+          <input type="date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sPassportIssueDate"   formControlName="sPassportIssueDate">
+        </div>
+            
+    </div>
+
+    <!-- Passport Expiry Date: -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sPassportExpiryDate">
+            Passport Expiry Date:
+          </label>
+        </div>
+
+        <div>
+          <input type="date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sPassportExpiryDate"   formControlName="sPassportExpiryDate">
+        </div>
+            
+    </div>
+
+    <!-- Dual Citizenship Status: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sDualCitizenshipStatus">
+            Dual Citizenship Status:
+          </label>
+        </div>
+
+        <div>
+          <input  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sDualCitizenshipStatus"   formControlName="sDualCitizenshipStatus">
+        </div>
+            
+    </div>
+
+    <!-- PR Status: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sPrStatus">
+            PR Status:
+          </label>
+        </div>
+
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sPrStatus"   formControlName="sPrStatus">
+        </div>
+            
+    </div>
+
+    <!-- Marriage Date -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sMarriageDate">
+            Marriage Date:
+          </label>
+        </div>
+
+        <div>
+          <input type="date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sMarriageDate"   formControlName="sMarriageDate">
+        </div>
+            
+    </div>
+
+    <!-- Permanent Country: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sPermanentCountry">
+            Permanent Country:
+          </label>
+        </div>
+
+        <div>
+          <input  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sPermanentCountry"   formControlName="sPermanentCountry">
+        </div>
+            
+    </div>
+
+    <!-- Permanent Division:: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sPermanentDivision">
+            Permanent Division:
+          </label>
+        </div>
+
+        <div>
+          <input  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sPermanentDivision"   formControlName="sPermanentDivision">
+        </div>
+            
+    </div>
+
+    <!-- Permanent District:: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sPermanentDistrict">
+            Permanent District:
+          </label>
+        </div>
+
+        <div>
+          <input  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sPermanentDistrict"   formControlName="sPermanentDistrict">
+        </div>
+            
+    </div>
+
+    <!-- Permanent Upazila:	: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sPermanentUpazila">
+            Permanent Upazila:
+          </label>
+        </div>
+
+        <div>
+          <input  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sPermanentUpazila"   formControlName="sPermanentUpazila">
+        </div>
+            
+    </div>
+
+    <!-- Permanent Post Code:: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sPermanentPostCode">
+            Permanent Post Code:
+          </label>
+        </div>
+
+        <div>
+          <input  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sPermanentPostCode"   formControlName="sPermanentPostCode">
+        </div>
+            
+    </div>
+
+    <!-- Address: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="sAddress">
+            Address:
+          </label>
+        </div>
+
+        <div>
+          <textarea  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="sAddress"   formControlName="sAddress"></textarea>
+        </div>
+            
+    </div>
+
+</form>
+
+<!-- other feautes -->
+
+<button class="w-25 h-10 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800" (click)="addEmployee()" type="submit">Save</button>
+
+<button type="button"  class="w-25 h-10 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">New</button>
+
+<button class="w-25 h-10  text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800" >Delete</button>
+
+<button class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" (click)="showEmployees()" >Show Employees in Console</button>

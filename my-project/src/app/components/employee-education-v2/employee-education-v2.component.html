@@ -1,0 +1,464 @@
+
+<h2 class="text-xl font-bold">Employee Info</h2>
+
+<br>
+
+<form class="grid grid-cols-4 gap-x-8 gap-y-4" [formGroup]="employeeInfo" >
+  
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="emplId">
+            Employee ID:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="emplId"   formControlName="emplId">
+        </div>
+        <div *ngIf="employeeInfo.get('emplId')?.hasError('required') && employeeInfo.get('emplId')?.touched">
+          <span class="text-red-500 text-sm">This is Required!</span>
+      </div>
+      <div *ngIf="employeeInfo.get('emplId')?.hasError('pattern') && employeeInfo.get('emplId')?.touched">
+        <span class="text-red-500 text-sm">Only Number!</span>
+    </div>
+    </div>
+
+    <div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700" for="employeeName">
+          Name:
+        </label>
+      </div>
+      <div>
+        <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="employeeName"   formControlName="employeeName" >
+      </div>
+      <div *ngIf="employeeInfo.get('employeeName')?.hasError('required') && employeeInfo.get('employeeName')?.touched">
+        <span class="text-red-500 text-sm">This is Required!</span>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700" for="employeeDesignation">
+          Designation:   <!-- here it will be popo up -->
+        </label>
+      </div>
+      <div>
+        <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="employeeDesignation"   formControlName="employeeDesignation" >
+          <option value="" disabled selected>-- Select Designation --</option>
+          <option *ngFor="let designation of designationList" [value]="designation.dname"> {{ designation.dname }}</option>
+        </select>
+      </div>
+      <div *ngIf="employeeInfo.get('employeeDesignation')?.hasError('required') && employeeInfo.get('employeeDesignation')?.touched">
+        <span class="text-red-500 text-sm">This is Required!</span>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700" for="dateOfBirth">
+          Date of birth:   <!-- auto calculated as age -->
+        </label>
+      </div>
+      <div>
+        <input type="date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="dateOfBirth"   formControlName="dateOfBirth" (change)="calculateAge()">
+      </div>
+      <div *ngIf="employeeInfo.get('dateOfBirth')?.hasError('required') && employeeInfo.get('dateOfBirth')?.touched">
+        <span class="text-red-500 text-sm">This is Required!</span>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700" for="age">
+          Age:   <!-- auto calculated as age -->
+        </label>
+      </div>
+      <div>
+        <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="age"   formControlName="age" type="number">
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700" for="phoneNumber">
+          Phone:   
+        </label>
+      </div>
+      <div>
+        <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="phoneNumber"   formControlName="phoneNumber" required>
+      </div>
+      <div *ngIf="employeeInfo.get('phoneNumber')?.hasError('required') && employeeInfo.get('phoneNumber')?.touched">
+        <span class="text-red-500 text-sm">This is Required! </span>
+      </div>
+      <div *ngIf="employeeInfo.get('phoneNumber')?.hasError('pattern') && employeeInfo.get('phoneNumber')?.touched">
+        <span class="text-red-500 text-sm"> Bangladesh Only!</span>
+      </div>
+      
+    </div>
+
+    <div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700" for="gender">
+          Gender:   
+        </label>
+      </div>
+      <div>
+        <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="gender"   formControlName="gender">
+              <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Others">Others</option>
+        </select>
+      </div>
+    </div>
+ 
+    <div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700" for="photo">
+          Upload Photo (JPG only):   
+        </label>
+      </div>
+      <div>
+        <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" type="file" (change)="onFileSelected($event)">
+      </div>
+      
+      <div *ngIf="selectedImage">
+        <p>Preview:</p>
+        <img [src]="selectedImage" alt="Uploaded Photo" class="w-32 h-32 border rounded-md">
+      </div>
+      
+    </div>
+      
+
+</form>
+<!-- employee info endes here! -->
+
+<!-- details starts here -->
+<br>
+
+<h2 class="text-xl font-bold">Education Details</h2>
+
+<br>
+
+<form class="grid grid-cols-4 gap-x-8 gap-y-4"  [formGroup]="employeeEducationInfo" >
+  
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="degree">
+            Degree:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="degree"   formControlName="degree" >
+        </div>
+        <div *ngIf="employeeEducationInfo.get('degree')?.hasError('required') && employeeEducationInfo.get('degree')?.touched">
+          <span class="text-red-500 text-sm">This is Required! </span>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="groupMajor">
+            Group/Major:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="groupMajor"  formControlName="groupMajor" required>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="passingYear">
+            Passing Year:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="passingYear"  formControlName="passingYear" required>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="boardName">
+            Board Name:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="boardName"  formControlName="boardName">
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="rollNo">
+            Roll No:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="rollNo"  formControlName="rollNo">
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="registrationNo">
+            Registration No:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="registrationNo"  formControlName="registrationNo">
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="instituteName">
+            Institute Name:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="instituteName" formControlName="instituteName" required>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="scaleOfGPA">
+            Scale Of GPA:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="scaleOfGPA"  formControlName="scaleOfGPA" required>
+        </div>
+      </div>
+      
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="gradeDivision">
+            Grade/Division:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="gradeDivision"  formControlName="gradeDivision" required>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="obtainedCGPA">
+            Obtained CGPA:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="obtainedCGPA" formControlName="obtainedCGPA" required>
+        </div>
+      </div>
+      <div></div>
+      <div></div>
+
+      <div>
+      <button *ngIf="!editModeEdu" class="w-35 h-10 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-1.5 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800" type="submit" (click)="addEducation()">Add</button>
+
+      <!--edu updateb utton -->
+      <button *ngIf="editModeEdu" type="button" (click)="updateEducation()" class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800">Update</button> 
+      </div>
+</form>
+
+<!-- list table emplyee education  -->
+
+<br>
+
+<div class="relative overflow-x-auto" *ngIf="employeeEducationList.length > 0">
+<h3 class="text-xl font-bold">Education List</h3>
+
+<br>
+<div class="relative overflow-x-auto"></div>
+
+<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"> 
+    <tr>
+      <!-- <th scope="col" class="px-6 py-3">ID</th>
+      <th scope="col" class="px-6 py-3">Name</th> -->
+      <th scope="col" class="px-6 py-3">Degree</th>
+      <th scope="col" class="px-6 py-3">Group Major</th>
+      <th scope="col" class="px-6 py-3">Passing Year</th>
+      <th scope="col" class="px-6 py-3">Board Name</th>
+      <th scope="col" class="px-6 py-3">Roll No</th>
+      <th scope="col" class="px-6 py-3">Registration No</th>
+      <th scope="col" class="px-6 py-3">Institute Name</th>
+      <th scope="col" class="px-6 py-3">Scale Of GPA</th>
+      <th scope="col" class="px-6 py-3">Grade Division</th>
+      <th scope="col" class="px-6 py-3">Obtained CGPA</th>
+      <th scope="col" class="px-6 py-3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody *ngFor="let edu of employeeEducationList; let i = index">
+
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+      <!-- <td class="px-6 py-4">{{employee.emplId }}</td>
+      <td class="px-6 py-4">{{employee.employeeName }}</td> -->
+      <td class="px-6 py-4">{{edu.degree }}</td>
+      <td class="px-6 py-4">{{edu.groupMajor}}</td>
+      <td class="px-6 py-4">{{edu.passingYear}}</td>
+      <td class="px-6 py-4">{{edu.boardName}}</td>
+      <td class="px-6 py-4">{{edu.rollNo}}</td>
+      <td class="px-6 py-4">{{edu.registrationNo}}</td>
+      <td class="px-6 py-4">{{edu.instituteName}}</td>
+      <td class="px-6 py-4">{{edu.scaleOfGPA}}</td>
+      <td class="px-6 py-4">{{edu.gradeDivision}}</td>
+      <td class="px-6 py-4">{{edu.obtainedCGPA}}</td>
+      <td>
+        <button type="button"  class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" (click)="editEducation(i)">Edit</button>
+        
+        
+        
+        
+        <button class="w-25 h-10  text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800"(click)="removeEducation(i)" >Delete</button>
+        
+      </td>
+    </tr>
+  
+  </tbody>
+</table>
+</div>
+
+<!--  button  -->
+
+<button *ngIf="!editModeInfoEdu" class="w-25 h-10 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 " (click)="saveEmployee()" type="submit">Save</button>
+<!--  THIS button UPDATE EDU INFO AND PUSH TO THE SAME ID -->
+
+<button *ngIf="editModeInfoEdu" class="w-25 h-10 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 " (click)="saveEmployeeUpdate()" type="submit">Update</button>
+
+
+<button type="button"  class="w-25 h-10 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" (click)="clearAllForms()">New</button> 
+
+<button routerLink="/app-employee-list" class="text-white bg-yellow-600 hover:bg-yellow-700 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" >List</button>
+
+<!--  Full emplyee button list -->
+
+<!-- <button class="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 " (click)="onFullShowList()">List</button>
+
+<div class="relative overflow-x-auto" *ngIf="showFullList">
+  <h3 class="text-xl font-bold">Full Only Employee List</h3>
+  
+  <br>
+  <div class="relative overflow-x-auto"></div>
+  
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"> 
+      <tr>
+        <th scope="col" class="px-6 py-3">ID</th>
+        <th scope="col" class="px-6 py-3">Name</th>
+        <th scope="col" class="px-6 py-3">Designation </th>
+        <th scope="col" class="px-6 py-3">Date Of Birth</th>
+        <th scope="col" class="px-6 py-3">age</th>
+        <th scope="col" class="px-6 py-3">phoneNumber</th>
+        <th scope="col" class="px-6 py-3">gender</th>
+        <th scope="col" class="px-6 py-3">actions</th>
+      </tr>
+    </thead>
+  
+    <tbody >
+        <tr>
+        <td colspan="7" class="border p-2 bg-gray-300 font-bold">{{ employee.employeeName }} (ID: {{ employee.emplId }})</td>
+      </tr> 
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200" *ngFor="let employee of employeeInfoList; let i = index">
+         
+        <td class="px-6 py-4">{{employee.emplId}}</td>
+        <td class="px-6 py-4">{{employee.employeeName}}</td>
+        <td class="px-6 py-4">{{employee.employeeDesignation }}</td>
+        <td class="px-6 py-4">{{employee.dateOfBirth}}</td>
+        <td class="px-6 py-4">{{employee.age}}</td>
+        <td class="px-6 py-4">{{employee.phoneNumber}}</td>
+        <td class="px-6 py-4">{{employee.gender}}</td>
+        <td><img *ngIf="employee.photo" [src]="employee.photo" alt="Employee Photo" class="w-16 h-16 rounded-full border border-gray-300"></td>
+
+        <td>
+          <button *ngIf="!editMode" type="button"  class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" (click)="editEmployee(i)">Edit</button>
+          
+          <button *ngIf="editMode" type="button"  class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" (click)="updateEmployee()">Update</button>
+          
+          
+          
+          <button class="w-25 h-10  text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800"(click)="removeEmployee(i)" >Delete</button>
+          
+        </td>
+      </tr>
+    
+    </tbody>
+  </table>
+  </div> -->
+
+<!-- tesing other features  -->
+<!-- <button class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" (click)="showEmployees()">Show Employees in Console</button> -->
+
+
+
+<!-- <button class="text-white bg-yellow-600 hover:bg-yellow-700 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" (click)="showEmployeesEdu()">List</button>
+
+<div *ngIf="showEmployeeList">
+  <h2 class="text-xl font-bold text-center" >Employee List</h2>
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th  scope="col" class="px-6 py-3">ID</th>
+        <th  scope="col" class="px-6 py-3">Name</th>
+        <th  scope="col" class="px-6 py-3">Designation</th>
+        <th  scope="col" class="px-6 py-3">Phone</th>
+        <th  scope="col" class="px-6 py-3">Gender</th>
+        <th  scope="col" class="px-6 py-3">Education Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200" *ngFor="let employee of employeeInfoList; let i = index">
+        <td class="px-6 py-4">{{ employee.emplId }}</td>
+        <td class="px-6 py-4">{{ employee.employeeName }}</td>
+        <td class="px-6 py-4">{{ employee.employeeDesignation }}</td>
+        <td class="px-6 py-4">{{ employee.phoneNumber }}</td>
+        <td class="px-6 py-4">{{ employee.gender }}</td>
+        <td>
+          <button (click)="employee.showEducation = !employee.showEducation">
+            {{ employee.showEducation ? 'Hide' : 'Show' }} Education
+          </button> -->
+
+          <!-- Education List for Each Employee -->
+          <!-- <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400" *ngIf="employee.showEducation">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th scope="col" class="px-6 py-3">Degree</th>
+                <th scope="col" class="px-6 py-3">Major</th>
+                <th scope="col" class="px-6 py-3">Passing Year</th>
+                <th scope="col" class="px-6 py-3">Board</th>
+                <th scope="col" class="px-6 py-3">Institute</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200" *ngFor="let edu of employee.educationList">
+                <td class="px-6 py-4">{{ edu.degree }}</td>
+                <td class="px-6 py-4">{{ edu.groupMajor }}</td>
+                <td class="px-6 py-4">{{ edu.passingYear }}</td>
+                <td class="px-6 py-4">{{ edu.boardName }}</td>
+                <td class="px-6 py-4">{{ edu.instituteName }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td>
+          <button *ngIf="!editMode" type="button"  class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" (click)="editEmployee(i)">Edit</button> -->
+          
+          <!-- <button *ngIf="editMode" type="button"  class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" (click)="updateEmployee()">Update</button> -->
+          
+          
+          
+          <!-- <button class="w-25 h-10  text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800"(click)="removeEmployee(i)" >Delete</button>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+        
+  

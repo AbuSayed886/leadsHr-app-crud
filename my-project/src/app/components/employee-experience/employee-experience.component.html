@@ -1,0 +1,313 @@
+<p>employee-experience works!</p>
+<h2 class="text-xl font-bold">Experience Details</h2>
+
+<br>
+
+<form class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4" (ngSubmit)="addEmployee()" [formGroup]="employeeExperienceInfo">
+    
+    <!-- organization -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="organization">
+            Organization:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="organization"   formControlName="organization" >
+        </div>
+    </div>
+
+    <!-- Joining Date -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="joiningDate">
+            Joining Date:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="joiningDate"   formControlName="joiningDate" >
+        </div>
+    </div>
+
+    <!-- Last Working Date: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="lastWorkingDate">
+            Last Working Date:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="lastWorkingDate" type="date" formControlName="lastWorkingDate" >
+        </div>
+    </div>
+
+    <!-- Joining Designation: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="joiningDesignation">
+            Joining Designation:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="joiningDesignation" type="text" formControlName="joiningDesignation" >
+        </div>
+    </div>
+
+    <!-- Report To: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="reportTo">
+            Report To:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="reportTo" type="text" formControlName="reportTo" >
+        </div>
+    </div>
+    <!-- if you need gap here, just add div -->
+
+    <!--Last Designation: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="lastDesignation">
+            Last Designation:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="lastDesignation" type="text" formControlName="lastDesignation" >
+        </div>
+    </div>
+
+    <!-- lastReportTo: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="lastReportTo">
+            Report To:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="lastReportTo" type="text" formControlName="lastReportTo" >
+        </div>
+    </div>
+
+    <!-- Effective Date: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="effectiveDate">
+            Effective Date:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="effectiveDate" type="text" formControlName="effectiveDate" >
+        </div>
+    </div>
+
+    <!-- Job Title: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="jobTitle">
+            Job Title:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="jobTitle" type="text" formControlName="jobTitle" >
+        </div>
+    </div>
+
+    <!-- salary -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="salary">
+            Salary:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="salary" type="text" formControlName="salary" >
+        </div>
+    </div>
+
+    <!-- Total Number of Employees: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="totalNumberofEmployees">
+            Total Number of Employees:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="totalNumberofEmployees" type="text" formControlName="totalNumberofEmployees" >
+        </div>
+    </div>
+    <div></div>
+    <!-- Head of The Dept/Div: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="headofTheDeptDiv">
+            Head of The Dept/Div:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="headofTheDeptDiv" type="text" formControlName="headofTheDeptDiv" >
+        </div>
+    </div>
+
+    <!-- Designation: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="designationDept">
+            Designation:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="designationDept" type="text" formControlName="designationDept" >
+        </div>
+    </div>
+
+    <!-- Mobile:: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="mobileDept">
+            Mobile:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="mobileDept" type="text" formControlName="mobileDept" >
+        </div>
+    </div>
+
+    
+
+    <!-- Head of The HR: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="headofTheHR">
+            Head of The HR:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="headofTheHR" type="text" formControlName="headofTheHR" >
+        </div>
+    </div>
+
+    <!-- Designation: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="designationHR">
+            Designation:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="designationHR" type="text" formControlName="designationHR" >
+        </div>
+    </div>
+
+    <!-- Mobile:: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="mobileHR">
+            Mobile:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="mobileHR" type="text" formControlName="mobileHR" >
+        </div>
+    </div>
+    
+    <!--Responsibilities: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="responsibilities">
+            Responsibilities:
+          </label>
+        </div>
+        <div>
+          <textarea class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="responsibilities" formControlName="responsibilities" > </textarea>
+        </div>
+    </div>
+
+    <!--Significant Achievements: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="significantAchievements">
+            Significant Achievements:
+          </label>
+        </div>
+        <div>
+          <textarea class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="significantAchievements" formControlName="significantAchievements" > </textarea>
+        </div>
+    </div>
+
+    <!--Other Benefits:: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="otherBenefits">
+            Other Benefits:
+          </label>
+        </div>
+        <div>
+          <textarea class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="otherBenefits" formControlName="otherBenefits" > </textarea>
+        </div>
+    </div>
+    
+    <button class="w-25 h-10 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-2xl text-base px-4 py-1.5 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800" type="submit">Add</button>
+</form>
+
+
+<br>
+
+<div class="relative overflow-x-auto" *ngIf="showList">
+<h3 class="text-xl font-bold">Employee Experience List</h3>
+
+<br>
+<div class="relative overflow-x-auto">
+
+</div>
+<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <tr>
+      <th scope="col" class="px-6 py-3">organization</th>
+      <th scope="col" class="px-6 py-3">joiningDate </th>
+      <th scope="col" class="px-6 py-3">lastWorkingDate </th>
+      <th scope="col" class="px-6 py-3">joiningDesignation </th>
+      <th scope="col" class="px-6 py-3">reportTo</th>
+      <th scope="col" class="px-6 py-3">lastDesignation</th>
+      <th scope="col" class="px-6 py-3">lastReportTo</th>
+      <th scope="col" class="px-6 py-3">effectiveDate</th>
+      <th scope="col" class="px-6 py-3">jobTitle</th>
+      <th scope="col" class="px-6 py-3">salary</th>
+      <th scope="col" class="px-6 py-3">totalNumberofEmployees</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200" *ngFor="let employeeExperInfo of employeeExperienceList; let i = index">
+      <td class="px-6 py-4">{{employeeExperInfo.organization }}</td>
+      <td class="px-6 py-4">{{employeeExperInfo.joiningDate}}</td>
+      <td class="px-6 py-4">{{employeeExperInfo.lastWorkingDate}}</td>
+      <td class="px-6 py-4">{{employeeExperInfo.joiningDesignation}}</td>
+      <td class="px-6 py-4">{{employeeExperInfo.reportTo}}</td>
+      <td class="px-6 py-4">{{employeeExperInfo.lastDesignation}}</td>
+      <td class="px-6 py-4">{{employeeExperInfo.effectiveDate}}</td>
+      <td class="px-6 py-4">{{employeeExperInfo.jobTitle}}</td>
+      <td class="px-6 py-4">{{employeeExperInfo.salary}}</td>
+      <td class="px-6 py-4">{{employeeExperInfo.totalNumberofEmployees}}</td>
+      <td>
+        <button type="button" (click)="editEmployee(i)" class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800">Edit</button>
+        
+        <!-- updateb utton -->
+        <!-- <button type="button" (click)="updateEmployee()" class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800">Update</button> -->
+        
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- other feautes -->
+
+<button class="w-25 h-10 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-2xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800" type="submit">Save</button>
+
+<button type="button"  class="w-25 h-10 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-2xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">New</button>
+        <button class="w-25 h-10  text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-2xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800" >Delete</button>
+
+<button class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-2xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" (click)="showEmployees()">Show Employees in Console</button>
+
+<button (click)="clearAllEmployees()" class="rounded-2xl btn btn-danger ml-2">Clear All Employee</button>

@@ -1,0 +1,263 @@
+
+<h2 class="text-xl font-bold">Employee Info</h2>
+
+<br>
+
+<form class="grid grid-cols-4 gap-x-8 gap-y-4" >
+  
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="employeeId">
+            Employee ID:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="employeeId"  name="employeeId" required>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="name">
+            Name:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="employeeId"  name="employeeId" required>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="name">
+            Designation:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="employeeId"  name="employeeId" required>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="name">
+            Department:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="employeeId"  name="employeeId" required>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="name">
+            Employee Type:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="employeeId"  name="employeeId" required>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="name">
+            Location:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="employeeId"  name="employeeId" required>
+        </div>
+      </div>
+
+</form>
+<!-- employee info endes here! -->
+
+<!-- details starts here -->
+<br>
+
+<h2 class="text-xl font-bold">Education Details</h2>
+
+<br>
+
+<form class="grid grid-cols-4 gap-x-8 gap-y-4" (ngSubmit)="addEmployee()" [formGroup]="employeeEducationInfo" >
+  
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="degree">
+            Degree:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="degree"   formControlName="degree" required>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="groupMajor">
+            Group/Major:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="groupMajor"  formControlName="groupMajor" required>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="passingYear">
+            Passing Year:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="passingYear"  formControlName="passingYear" required>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="boardName">
+            Board Name:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="boardName"  formControlName="boardName">
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="rollNo">
+            Roll No:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="rollNo"  formControlName="rollNo">
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="registrationNo">
+            Registration No:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="registrationNo"  formControlName="registrationNo">
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="instituteName">
+            Institute Name:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="instituteName" formControlName="instituteName" required>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="scaleOfGPA">
+            Scale Of GPA:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="scaleOfGPA"  formControlName="scaleOfGPA" required>
+        </div>
+      </div>
+      
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="gradeDivision">
+            Grade/Division:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="gradeDivision"  formControlName="gradeDivision" required>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="obtainedCGPA">
+            Obtained CGPA:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="obtainedCGPA" formControlName="obtainedCGPA" required>
+        </div>
+      </div>
+      <div></div>
+      <div></div>
+      <button class="w-35 h-10 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-1.5 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800" type="submit">Add</button>
+
+</form>
+
+<!-- list table emplyee education  -->
+
+<br>
+
+<div class="relative overflow-x-auto" *ngIf="showList">
+<h3 class="text-xl font-bold">Employee List</h3>
+
+<br>
+<div class="relative overflow-x-auto"></div>
+
+<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <tr>
+      <th scope="col" class="px-6 py-3">Degree</th>
+      <th scope="col" class="px-6 py-3">Group Major</th>
+      <th scope="col" class="px-6 py-3">Passing Year</th>
+      <th scope="col" class="px-6 py-3">Board Name</th>
+      <th scope="col" class="px-6 py-3">Roll No</th>
+      <th scope="col" class="px-6 py-3">Registration No</th>
+      <th scope="col" class="px-6 py-3">Institute Name</th>
+      <th scope="col" class="px-6 py-3">Scale Of GPA</th>
+      <th scope="col" class="px-6 py-3">Grade Division</th>
+      <th scope="col" class="px-6 py-3">Obtained CGPA</th>
+      <th scope="col" class="px-6 py-3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200" *ngFor="let employeeEduInfo of employeeEducationList; let i = index">
+      <td class="px-6 py-4">{{ employeeEduInfo.degree }}</td>
+      <td class="px-6 py-4">{{employeeEduInfo.groupMajor}}</td>
+      <td class="px-6 py-4">{{employeeEduInfo.passingYear}}</td>
+      <td class="px-6 py-4">{{employeeEduInfo.boardName}}</td>
+      <td class="px-6 py-4">{{employeeEduInfo.rollNo}}</td>
+      <td class="px-6 py-4">{{employeeEduInfo.registrationNo}}</td>
+      <td class="px-6 py-4">{{employeeEduInfo.instituteName}}</td>
+      <td class="px-6 py-4">{{employeeEduInfo.scaleOfGPA}}</td>
+      <td class="px-6 py-4">{{employeeEduInfo.gradeDivision}}</td>
+      <td class="px-6 py-4">{{employeeEduInfo.obtainedCGPA}}</td>
+      <td>
+        <button type="button"  class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" (click)="editEmployee(i)">Edit</button>
+        
+        <!-- updateb utton -->
+        <button type="button" (click)="updateEmployee()" class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800">Update</button> 
+        
+        <button class="w-25 h-10  text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800"(click)="removeEmployee(i)" >Delete</button>
+        
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- tesing other features -->
+
+<button class="w-25 h-10 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800" type="submit">Save</button>
+
+<button type="button"  class="w-25 h-10 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" (click)="clearForm()">New</button>
+        
+        <button class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" (click)="showEmployees()">Show Employees in Console</button>
+        <button  class="btn btn-danger ml-2" (click)="clearAllEmployees()">Clear All Employee</button>
+
+        
+  

@@ -1,0 +1,76 @@
+
+<h2 class="text-xl font-bold">Company Account Management</h2>
+
+<br>
+
+<div class="w-full max-w-sm md:flex md:items-center mb-6">
+  <div class="md:w-1/3">
+    <label class="block text-sm font-medium text-gray-700" for="currentBalance">Current Balance:</label>
+  </div>
+  <div class="md:w-2/3">
+    <span class="block text-lg font-bold text-green-700">{{ companyAccount.currentBalance }}</span>
+  </div>
+</div>
+
+<div class="w-full max-w-sm md:flex md:items-center mb-6">
+  <div class="md:w-1/3">
+    <label class="block text-sm font-medium text-gray-700" for="addFunds">Add Funds:</label>
+  </div>
+  <div class="md:w-2/3">
+    <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="addFunds" [(ngModel)]="addFundsAmount" type="number">  
+  </div>
+  
+</div>
+
+<button class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green700 focus:outline-none dark:focus:ring-green-800" (click)="addFunds()">Add Funds</button>
+
+<!-- <div>
+  <label for="addFunds">Add Funds:</label>
+  <input id="addFunds" [(ngModel)]="addFundsAmount" type="number" />
+  <button class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800" (click)="addFunds()">Add Funds</button>
+</div> -->
+
+
+<br>
+
+
+<h3 class="text-xl font-bold">Salary Payment</h3>
+<br>
+<div class="w-full max-w-sm md:flex md:items-center mb-6">
+  <div class="md:w-1/3">
+    <label class="block text-sm font-medium text-gray-700" for="basicGrade6">Basic Salary for Grade 6:</label>
+  </div>  
+  <div class="md:w-2/3">
+      <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="basicGrade6" [(ngModel)]="basicGrade6" type="number" />
+  </div>
+</div>
+
+<!-- <div>
+  <label for="basicGrade6">Basic Salary for Grade 6:</label>
+  <input id="basicGrade6" [(ngModel)]="basicGrade6" type="number" />
+</div> -->
+
+<button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" (click)="transferSalaries()">Transfer Salaries</button>
+<br>
+<h3 class="text-xl font-bold text-center">Employees Eligible for Salary Transfer List</h3>
+<br>
+<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400" *ngIf="employeeList.length > 0">
+  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <tr>
+      <th scope="col" class="px-6 py-3">Employee ID</th>
+      <th scope="col" class="px-6 py-3">Name</th>
+      <th scope="col" class="px-6 py-3">Grade</th>
+      <th scope="col" class="px-6 py-3">Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200" *ngFor="let emp of employeeList">
+      <td class="px-6 py-4">{{ emp.employeeId }}</td>
+      <td class="px-6 py-4">{{ emp.name }}</td>
+      <td class="px-6 py-4">{{ emp.grade }}</td>
+      <td class="px-6 py-4">${{ calculateSalary(emp) }}</td>
+    </tr>
+  </tbody>
+</table>
+<button class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800" (click)="clearBankData()" >Clear Bank Data</button>
+

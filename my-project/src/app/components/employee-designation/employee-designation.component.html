@@ -1,0 +1,91 @@
+<h2 class="text-xl font-bold">Designation</h2>
+
+<br>
+
+<form class="grid grid-cols-4 gap-x-8 gap-y-4" [formGroup]="employeeDesignationInfo" >
+  
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="dname">
+            Name:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="dname"  formControlName="dname">
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="dnameShort">
+            Name Short Form:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="dnameShort"  formControlName="dnameShort">
+        </div>
+      </div>
+
+      <div></div>  <!--  for space -->
+      <div></div>  <!--  for space -->
+
+      <div>
+        <div>
+          <label class="text-sm font-medium text-gray-700" for="isActive">
+            isActive:
+          </label>
+          
+            <input  type='checkbox' id="isActive"  formControlName="isActive">
+          
+        </div>
+      </div>
+
+      <div></div>  <!--  for space -->
+      <div></div>  <!--  for space -->
+      <div></div>  <!--  for space -->
+    
+    <div>
+        
+          <button *ngIf="!editMode" class="w-25 h-10 mr-2 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-1.5" (click)="addEmployee()" type="submit">Add</button>
+        
+          <button *ngIf="editMode" type="button" (click)="updateEmployee()" class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800">Update</button> 
+        
+        
+
+        <button type="button"  class="w-25 h-10 mr-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 " (click)="clearForm()">New</button>
+    </div>
+      
+
+</form>
+
+<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-6 py-3">No.</th>
+        <th scope="col" class="px-6 py-3">Degree</th>
+        <th scope="col" class="px-6 py-3">Degree Short Name</th>
+        <th scope="col" class="px-6 py-3">isActive</th>
+        <th scope="col" class="px-6 py-3">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200" *ngFor="let employeeDesInfo of employeeDesignationList; let i = index">
+        <td class="px-6 py-4">{{ i + 1 }}</td>
+        <td class="px-6 py-4">{{ employeeDesInfo.dname }}</td>
+        <td class="px-6 py-4">{{ employeeDesInfo.dnameShort }}</td>
+        <td class="px-6 py-4">{{ employeeDesInfo.isActive }}</td>
+        
+        <td>
+          <button type="button"  class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" (click)="editEmployee(i)">Edit</button>
+          
+          <!-- updateb utton -->
+          <!-- <button type="button" (click)="updateEmployee()" class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800">Update</button>  -->
+          
+          <button class="w-25 h-10  text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800"(click)="removeEmployee(i)" >Delete</button>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- <button class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" (click)="showEmployees()">Show Employees in Console</button> -->

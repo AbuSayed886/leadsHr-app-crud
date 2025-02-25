@@ -1,0 +1,88 @@
+<div >
+  <h2 class="text-xl font-bold text-center">Employee List</h2>
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th  scope="col" class="px-6 py-3">ID</th>
+        <th  scope="col" class="px-6 py-3">Name</th>
+        <th  scope="col" class="px-6 py-3">Designation</th>
+        <th  scope="col" class="px-6 py-3">Phone</th>
+        <th  scope="col" class="px-6 py-3">Gender</th>
+        <th scope="col" class="px-6 py-3">Photo</th>
+        <th  scope="col" class="px-6 py-3">Education Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200" *ngFor="let employee of employeeInfoList; let i = index">
+        <td class="px-6 py-4">{{ employee.emplId }}</td>
+        <td class="px-6 py-4">{{ employee.employeeName }}</td>
+        <td class="px-6 py-4">{{ employee.employeeDesignation }}</td>
+        <td class="px-6 py-4">{{ employee.phoneNumber }}</td>
+        <td class="px-6 py-4">{{ employee.gender }}</td>
+        <td class="px-6 py-4"> 
+          <img *ngIf="employee.photo" [src]="employee.photo" alt="Employee Photo" class="w-16 h-16 rounded-full border border-gray-300">
+          </td>
+        <td>
+          <button (click)="employee.showEducation = !employee.showEducation">
+            {{ employee.showEducation ? 'Hide' : 'Show' }} Education
+          </button> 
+
+          <!-- Education List for Each Employee -->
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400" *ngIf="employee.showEducation">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th scope="col" class="px-6 py-3">Degree</th>
+                <th scope="col" class="px-6 py-3">Major</th>
+                <th scope="col" class="px-6 py-3">Passing Year</th>
+                <th scope="col" class="px-6 py-3">Board</th>
+                <th scope="col" class="px-6 py-3">Institute</th>   
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200" *ngFor="let edu of employee.educationList">
+                <td class="px-6 py-4">{{ edu.degree }}</td>
+                <td class="px-6 py-4">{{ edu.groupMajor }}</td>
+                <td class="px-6 py-4">{{ edu.passingYear }}</td>
+                <td class="px-6 py-4">{{ edu.boardName }}</td>
+                <td class="px-6 py-4">{{ edu.instituteName }}</td>          
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td>
+          <!-- routerLink="/app-employee-education-v2" -->
+           <button  type="button"  class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" (click)="editEmployee(employee, i)" >Edit</button>
+          
+          <!-- <button  type="button"  class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" >Update</button> -->
+          
+          
+          
+          <button class="w-25 h-10  text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800" (click)="deleteEmployee(i)" >Delete</button>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<button routerLink="/app-employee-education-v2"> &lt; Back to Education</button>
+<!-- <table >
+  <thead>
+    <tr>
+      <th>Employee ID</th>
+      <th>Name</th>
+      <th>Designation</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employeeInfoList; let i = index">
+      <td>{{ employee.emplId }}</td>
+      <td>{{ employee.employeeName }}</td>
+      <td>{{ employee.employeeDesignation }}</td>
+      <td>
+        <button class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" (click)="editEmployee(employee, i)">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table> -->

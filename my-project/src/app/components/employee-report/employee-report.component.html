@@ -1,0 +1,40 @@
+<p>employee-report works!</p>
+<div class="p-6 bg-white rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold mb-4 text-center">Employee Report</h2>
+  
+    <div id="pdf-content" class="overflow-x-auto">
+      <table class="w-full border border-gray-300 rounded-lg text-sm text-left">
+        <thead class="bg-gray-200 text-gray-700 uppercase">
+          <tr>
+            <th class="border border-gray-300 px-4 py-2">ID</th>
+            <th class="border border-gray-300 px-4 py-2">Name</th>
+            <th class="border border-gray-300 px-4 py-2">Designation</th>
+            <th class="border border-gray-300 px-4 py-2">Education</th>
+            <th class="border border-gray-300 px-4 py-2">Photo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employeeInfoList" class="hover:bg-gray-50">
+            <td class="border border-gray-300 px-4 py-2">{{ emp.emplId }}</td>
+            <td class="border border-gray-300 px-4 py-2 font-semibold">{{ emp.employeeName }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ emp.employeeDesignation }}</td>
+            <td class="border border-gray-300 px-4 py-2">
+              <ul class="list-disc pl-4">
+                <li *ngFor="let edu of emp.educationList" class="text-gray-600">{{ edu.degree }} - {{ edu.instituteName }}</li>
+              </ul>
+            </td>
+            <td class="border border-gray-300 px-4 py-2 text-center">
+              <img *ngIf="emp.photo" [src]="emp.photo" alt="Employee Photo" class="w-12 h-12 rounded-full border border-gray-400 shadow-sm">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="mt-6 text-center">
+      <button (click)="generatePDF()" class="px-6 py-2 bg-blue-500 text-white font-medium rounded-lg shadow-md hover:bg-blue-600 transition">
+        Export as PDF
+      </button>
+    </div>
+  </div>
+  

@@ -1,0 +1,745 @@
+<!-- <div class="mb-5">
+    <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ID</label>
+    <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+</div>
+<div> -->
+    <label class="text-xl font-bold">Personal Details</label> 
+    
+    <div class="w-full">
+        <br>
+        <form class="grid grid-cols-5 gap-x-8 gap-y-4 " [formGroup]="employeeProfileInfo">
+                
+            <!-- ID -->
+            <div>
+                <label for="id" class="block text-sm font-medium text-gray-700">ID</label>
+                <input
+                    type="text"
+                    id="id"
+                    formControlName="id"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder="Enter ID"
+                />
+            </div>
+
+            <!-- Full Name (English) -->
+            <div>
+                <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name (English)</label>
+                <input
+                    type="text"
+                    id="fullNameEng"
+                    formControlName="fullNameEng"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder="Full Name"
+                />
+            </div>
+
+            <!-- Full Name (Bangla) -->
+            <div>
+                <label for="fullNameBang" class="block text-sm font-medium text-gray-700">Full Name (Bangla)</label>
+                <input
+                    type="text"
+                    id="fullNameBang"
+                    formControlName="fullNameBang"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder="Full Name"
+                />
+            </div>
+
+            <!-- Sex -->
+            <div>
+                <label for="sex" class="block text-sm font-medium text-gray-700">Sex</label>
+                <input
+                    type="text"
+                    id="sex"
+                    formControlName="sex"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder="Male"
+                />
+            </div>
+            
+             <!-- Father's Name English-->
+             <div>
+                <label for="fatherName" class="block text-sm font-medium text-gray-700">Father's Name (English)</label>
+                <input
+                    type="text"
+                    id="fatherNameEng"
+                    formControlName="fatherNameEng"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Father's Name Bnagla-->
+            <div>
+                <label for="fatherName" class="block text-sm font-medium text-gray-700">Father's Name (Bangla)</label>
+                <input
+                    type="text"
+                    id="fatherNamebang"
+                    formControlName="fatherNamebang"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+            
+            <!-- Mother's Name English-->
+            <div>
+                <label for="mothersName" class="block text-sm font-medium text-gray-700">Mother's Name (English)</label>
+                <input
+                    type="text"
+                    id="mothersNameEng"
+                    formControlName="mothersNameEng"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Mothers's Name Bnagla-->
+            <div>
+                <label for="motherName" class="block text-sm font-medium text-gray-700">Mother's Name (Bangla)</label>
+                <input
+                    type="text"
+                    id="mothersNamebang"
+                    formControlName="mothersNamebang"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+            
+            <!-- Date -->
+            <div>
+                <label for="birthDate" class="block text-sm font-medium text-gray-700">Date of Birth</label>
+                <input
+                    type="date"
+                    id="birthDate"
+                    formControlName="birthDate"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                />
+            </div>
+
+            <!-- Place of Birth -->
+            <div>
+                <label for="palaceOfBirth" class="block text-sm font-medium text-gray-700">Place of Birth</label>
+                <input
+                    type="text"
+                    id="palaceOfBirth"
+                    formControlName="palaceOfBirth"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder="Country"
+                />
+            </div>
+
+            <!-- Birth Certificate No -->
+            <div>
+                <label for="birthCertificateNo" class="block text-sm font-medium text-gray-700">Birth Certificate No</label>
+                <input
+                    type="text"
+                    id="birthCertificateNo"
+                    formControlName="birthCertificateNo"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Nationality: -->
+            <div>
+                <label for="nationality" class="block text-sm font-medium text-gray-700">Nationality:</label>
+                <input
+                    type="text"
+                    id="nationality"
+                    formControlName="nationality"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- National Id No -->
+            <div>
+                <label for="nationalIdNo" class="block text-sm font-medium text-gray-700">National Id No:</label>
+                <input
+                    type="text"
+                    id="nationalIdNo"
+                    formControlName="nationalIdNo"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- National Id No -->
+            <div>
+                <label for="religion" class="block text-sm font-medium text-gray-700">Religion:</label>
+                <input
+                    type="text"
+                    id="religion"
+                    formControlName="religion"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- BloodGroup -->
+            <div>
+                <label for="bloodGroup" class="block text-sm font-medium text-gray-700">Blood Group:</label>
+                <input
+                    type="text"
+                    id="bloodGroup"
+                    formControlName="bloodGroup"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Height: (Ft.Inch) -->
+            <div>
+                <label for="height" class="block text-sm font-medium text-gray-700">Height: (Ft.Inch):</label>
+                <input
+                    type="text"
+                    id="height"
+                    formControlName="height"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Weight: (Ft.Inch) -->
+            <div>
+                <label for="weight" class="block text-sm font-medium text-gray-700">Weight: (Ft.Inch):</label>
+                <input
+                    type="text"
+                    id="weight"
+                    formControlName="weight"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!--Marital Status: -->
+            <div>
+                <label for="marriedstatus" class="block text-sm font-medium text-gray-700">Marital Status:</label>
+                <input
+                    type="text"
+                    id="marriedstatus"
+                    formControlName="marriedstatus"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!--Marital Date: -->
+            <div>
+                <label for="marrieddate" class="block text-sm font-medium text-gray-700">Marriage Date:</label>
+                <input
+                    type="date"
+                    id="mDate"
+                    formControlName="mDate"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                />
+            </div>
+
+            <!--Deviorced Date: -->
+            <div>
+                <label for="divorceddate" class="block text-sm font-medium text-gray-700">Divorced Date:</label>
+                <input
+                    type="date"
+                    id="divorceddate"
+                    formControlName="divorceddate"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                />
+            </div>
+
+            <!-- Home Phone -->
+            <div>
+                <label for="homePhone" class="block text-sm font-medium text-gray-700">Home Phone:</label>
+                <input
+                    type="text"
+                    id="homePhone"
+                    formControlName="homePhone"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Personal Mobile No: -->
+            <div>
+                <label for="personalMobileNo" class="block text-sm font-medium text-gray-700">Personal Mobile No:</label>
+                <input
+                    type="text"
+                    id="personalMobileNo"
+                    formControlName="personalMobileNo"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Official Mobile No: -->
+            <div>
+                <label for="officialMobileNo" class="block text-sm font-medium text-gray-700">Official Mobile No:</label>
+                <input
+                    type="text"
+                    id="officialMobileNo"
+                    formControlName="officialMobileNo"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Personal Email -->
+            <div>
+                <label for="pemail" class="block text-sm font-medium text-gray-700">Personal Email</label>
+                <input
+                    type="text"
+                    id="pemail"
+                    formControlName="pemail"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Offcial Email -->
+            <div>
+                <label for="offcialemail" class="block text-sm font-medium text-gray-700">Offcial Email</label>
+                <input
+                    type="text"
+                    id="offcialemail"
+                    formControlName="offcialemail"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!--Extension Number -->
+            <div>
+                <label for="extensionNumber" class="block text-sm font-medium text-gray-700">Extension Number:</label>
+                <input
+                    type="text"
+                    id="extensionNumber"
+                    formControlName="extensionNumber"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!--Passport No: -->
+            <div>
+                <label for="passportNo:" class="block text-sm font-medium text-gray-700">Passport No:</label>
+                <input
+                    type="text"
+                    id="passportNo"
+                    formControlName="passportNo"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!--Place of Issue: -->
+            <div>
+                <label for="placeofIssue" class="block text-sm font-medium text-gray-700">Place of Issue:</label>
+                <input
+                    type="text"
+                    id="placeofIssue"
+                    formControlName="placeofIssue"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!--Expiry Date: -->
+            <div>
+                <label for="expiryDate" class="block text-sm font-medium text-gray-700">Expiry Date:</label>
+                <input
+                    type="date"
+                    id="expiryDate"
+                    formControlName="expiryDate"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                />
+            </div>
+
+            <!-- Driving License No: -->
+            <div>
+                <label for="drivingLicenseNo:" class="block text-sm font-medium text-gray-700">Driving License No:</label>
+                <input
+                    type="text"
+                    id="drivingLicenseNo"
+                    formControlName="drivingLicenseNo"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Present Country: -->
+            <div>
+                <label for="presentCountry" class="block text-sm font-medium text-gray-700">Present Country:</label>
+                <input
+                    type="text"
+                    id="presentCountry"
+                    formControlName="presentCountry"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Present Division: -->
+            <div>
+                <label for="presentDivision" class="block text-sm font-medium text-gray-700">Present Division:</label>
+                <input
+                    type="text"
+                    id="presentDivision"
+                    formControlName="presentDivision"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Present District: -->
+            <div>
+                <label for="presentDistrict" class="block text-sm font-medium text-gray-700">Present District:</label>
+                <input
+                    type="text"
+                    id="presentDistrict"
+                    formControlName="presentDistrict"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Present Upazila: -->
+            <div>
+                <label for="presentUpazila" class="block text-sm font-medium text-gray-700">Present Upazila:</label>
+                <input
+                    type="text"
+                    id="presentUpazila"
+                    formControlName="presentUpazila"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Present Post Code: -->
+            <div>
+                <label for="presentPostCode" class="block text-sm font-medium text-gray-700">Present Post Code:</label>
+                <input
+                    type="text"
+                    id="presentPostCode"
+                    formControlName="presentPostCode"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Present Address: -->
+            <div>
+                <label for="presentAddress" class="block text-sm font-medium text-gray-700">Present Address:</label>
+                <input
+                    type="textarea"
+                    id="presentAddress"
+                    formControlName="presentAddress"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Emergency Contact Person: -->
+            <div>
+                <label for="emergencyContactPerson" class="block text-sm font-medium text-gray-700">Emergency Contact Person:</label>
+                <input
+                    type="text"
+                    id="emergencyContactPerson"
+                    formControlName="emergencyContactPerson"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Relation with Contact Person: -->
+            <div>
+                <label for="relationwithContactPerson" class="block text-sm font-medium text-gray-700">Relation with Contact Person:</label>
+                <input
+                    type="text"
+                    id="relationwithContactPerson"
+                    formControlName="relationwithContactPerson"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Emergency Contact No: -->
+            <div>
+                <label for="emergencyContactNo" class="block text-sm font-medium text-gray-700">Emergency Contact No:</label>
+                <input
+                    type="text"
+                    id="emergencyContactNo"
+                    formControlName="emergencyContactNo"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Emergency Contact Nid No: -->
+            <div>
+                <label for="emergencyContactNidNo" class="block text-sm font-medium text-gray-700">Emergency Contact Nid No:</label>
+                <input
+                    type="text"
+                    id="emergencyContactNidNo"
+                    formControlName="emergencyContactNidNo"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Emergency Contact Email: -->
+            <div>
+                <label for="emergencyContactEmail" class="block text-sm font-medium text-gray-700">Emergency Contact Email:</label>
+                <input
+                    type="text"
+                    id="emergencyContactEmail"
+                    formControlName="emergencyContactEmail"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Emergency Contact Country: -->
+            <div>
+                <label for="emergencyContactCountry" class="block text-sm font-medium text-gray-700">Emergency Contact Country:</label>
+                <input
+                    type="text"
+                    id="emergencyContactCountry"
+                    formControlName="emergencyContactCountry"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Emergency Contact Division:: -->
+            <div>
+                <label for="emergencyContactDivision" class="block text-sm font-medium text-gray-700">Emergency Contact Division:</label>
+                <input
+                    type="text"
+                    id="emergencyContactDivision"
+                    formControlName="emergencyContactDivision"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Emergency Contact District: -->
+            <div>
+                <label for="emergencyContactDistrict" class="block text-sm font-medium text-gray-700">Emergency Contact District:</label>
+                <input
+                    type="text"
+                    id="emergencyContactDistrict"
+                    formControlName="emergencyContactDistrict"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!--Emergency Contact Upazila:-->
+            <div>
+                <label for="emergencyContactUpazila" class="block text-sm font-medium text-gray-700">Emergency Contact Upazila:</label>
+                <input
+                    type="text"
+                    id="emergencyContactUpazila"
+                    formControlName="emergencyContactUpazila"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!--Emergency Contact Post Code:-->
+            <div>
+                <label for="emergencyContactPostCode" class="block text-sm font-medium text-gray-700">Emergency Contact Post Code:</label>
+                <input
+                    type="text"
+                    id="emergencyContactPostCode"
+                    formControlName="emergencyContactPostCode"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!--Emergency Address::-->
+            <div>
+                <label for="address" class="block text-sm font-medium text-gray-700">Address:</label>
+                <input
+                    type="text"
+                    id="address"
+                    formControlName="address"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+                
+            </form>   
+    </div> 
+    
+    <br>
+
+    <label class="text-xl font-bold">Organizational Details</label> 
+    
+    <div class="w-full">
+        <br> 
+        <form class="grid grid-cols-5 gap-x-8 gap-y-4" [formGroup]="organizationalDetailsInfo">
+                
+            <!-- EmploymentType -->
+            <div>
+                <label for="employmentType" class="block text-sm font-medium text-gray-700">Employment Type:</label>
+                <input
+                    type="text"
+                    id="employmentType"
+                    formControlName="employmentType"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder="Employment Type"
+                />
+            </div>
+
+            <!-- Job Status: -->
+            <div>
+                <label for="jobStatus" class="block text-sm font-medium text-gray-700">Job Status:</label>
+                <input
+                    type="text"
+                    id="jobStatus"
+                    formControlName="jobStatus"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+            
+            <!-- Corporate Designation: -->
+            <div>
+                <label for="corporateDesignation" class="block text-sm font-medium text-gray-700">Corporate Designation:</label>
+                <input
+                    type="text"
+                    id="corporateDesignation"
+                    formControlName="corporateDesignation"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Functiona Designation: -->
+            <div>
+                <label for="functionalDesignation" class="block text-sm font-medium text-gray-700">Functional Designation:</label>
+                <input
+                    type="text"
+                    id="functionalDesignation"
+                    formControlName="functionalDesignation"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Report To: -->
+            <div>
+                <label for="reportTo" class="block text-sm font-medium text-gray-700">Report To:</label>
+                <input
+                    type="text"
+                    id="reportTo"
+                    formControlName="reportTo"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Joining Date: -->
+            <div>
+                <label for="joiningDate" class="block text-sm font-medium text-gray-700">Joining Date:</label>
+                <input
+                    type="date"
+                    id="joiningDate"
+                    formControlName="joiningDate"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Confirmation Date: -->
+            <div>
+                <label for="confirmationDate" class="block text-sm font-medium text-gray-700">Confirmation Date:</label>
+                <input
+                    type="date"
+                    id="confirmationDate"
+                    formControlName="confirmationDate"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!--job status-->
+            <div>
+                <label for="jobStatusChangedDate" class="block text-sm font-medium text-gray-700">Job Status Changed Date:</label>
+                <input
+                    type="date"
+                    id="jobStatusChangedDate"
+                    formControlName="jobStatusChangedDate"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Basic Salary: -->
+            <div>
+                <label for="basicSalary" class="block text-sm font-medium text-gray-700">Basic Salary:</label>
+                <input
+                    type="text"
+                    id="basicSalary"
+                    formControlName="basicSalary"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- PF No: -->
+            <div>
+                <label for="pfNo" class="block text-sm font-medium text-gray-700">PF No:</label>
+                <input
+                    type="text"
+                    id="pfNo"
+                    formControlName="pfNo"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+
+            <!-- Probation Period : -->
+            <div>
+                <label for="probationPeriod" class="block text-sm font-medium text-gray-700">Probation Period :</label>
+                <input
+                    type="text"
+                    id="probationPeriod"
+                    formControlName="probationPeriod"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+            <!--Expected Confirm Date-->
+            <div>
+                <label for="expectedConfirmDate" class="block text-sm font-medium text-gray-700">Expected Confirm Date:</label>
+                <input
+                    type="date"
+                    id="expectedConfirmDate"
+                    formControlName="expectedConfirmDate"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder=""
+                />
+            </div>
+            
+            </form>   
+    </div> 
+    
+    <br>
+
+    <!-- Submit Button (Spanning 3 Columns) -->
+    <!-- <div class="grid grid-cols-8 gap-x-8 gap-y-4">
+        
+    </div> -->
+    <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" (click)="addEmployee()">
+        Submit
+    </button>
+
+    <button class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" (click)="showEmployees()">
+        Show Employees in Console
+    </button>
+
+     
+
+    

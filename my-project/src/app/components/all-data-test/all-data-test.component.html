@@ -1,0 +1,105 @@
+<p>all-data-test works!</p>
+<div class="max-w-lg mx-auto p-4 bg-white shadow-md rounded-lg">
+  <h2 class="text-xl font-bold mb-4">Employee Management</h2>
+
+  <form [formGroup]="employeeForm" (ngSubmit)="saveEmployee()">
+    <div class="mb-4">
+      <label class="block text-sm font-medium">Employee ID</label>
+      <input
+        type="text"
+        formControlName="emplId"
+        class="w-full border px-3 py-2 rounded"
+      />
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-sm font-medium">Employee Name</label>
+      <input
+        type="text"
+        formControlName="employeeName"
+        class="w-full border px-3 py-2 rounded"
+      />
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-sm font-medium">Photo</label>
+      <input type="file" (change)="onFileSelected($event)" class="mt-1 p-2 border rounded w-full" />
+      <img
+        *ngIf="selectedImage"
+        [src]="selectedImage"
+        alt="Preview"
+        class="w-24 h-24 mt-2 rounded"
+      />
+    </div>
+
+    <!-- pdf er jonno -->
+
+    <div class="mb-4">
+      <label for="pdfFile" class="block text-sm font-medium text-gray-700">Upload PDF</label>
+     
+      <input type="file" id="pdfFile" (change)="onFileSelectedPdf($event)" class="mt-1 p-2 border rounded w-full">
+    
+     <!--Show file name when editing -->
+     <div *ngIf="selectedPdfName" class="mt-2 text-gray-600">
+      {{ selectedPdfName }}
+     </div>
+      
+      <button
+        *ngIf="selectedPdf"
+        type="button"
+        (click)="previewPdf(selectedPdf)"
+        class="bg-green-500 text-white px-3 py-1 mt-2 rounded hover:bg-green-600"
+      >
+        Preview PDF
+      </button>
+    </div>
+
+    <button
+      type="submit"
+      class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+    >
+      {{ editIndex !== null ? 'Update Employee' : 'Save Employee' }}
+    </button>
+  </form>
+
+  <h2 class="text-xl font-bold mt-6">Employee List</h2>
+
+  <table class="w-full mt-4 border">
+    <thead>
+      <tr class="bg-gray-200">
+        <th class="border px-4 py-2">ID</th>
+        <th class="border px-4 py-2">Name</th>
+        <th class="border px-4 py-2">Photo</th>
+        <th class="border px-4 py-2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employeeList; let i = index">
+        <td class="border px-4 py-2">{{ employee.emplId }}</td>
+        <td class="border px-4 py-2">{{ employee.employeeName }}</td>
+        <td class="border px-4 py-2">
+          <img
+            *ngIf="employee.photo"
+            [src]="employee.photo"
+            alt="Employee Photo"
+            class="w-16 h-16 rounded"
+          />
+        </td>
+        <td class="border px-4 py-2">
+          <button
+            (click)="editEmployee(i)"
+            class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
+          >
+            Edit
+          </button>
+          <button
+            (click)="deleteEmployee(i)"
+            class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 ml-2"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

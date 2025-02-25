@@ -1,0 +1,197 @@
+
+<h2 class="text-xl font-bold">Training Details</h2>
+
+<br>
+
+<form class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4" (ngSubmit)="addEmployee()" [formGroup]="employeeTrainingInfo">
+    
+    <!-- topic -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="topic">
+            Topic:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="topic"   formControlName="topic" required>
+        </div>
+    </div>
+
+    <!-- area -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="area">
+            Area:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="area"   formControlName="area">
+        </div>
+    </div>
+
+    <!-- country -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="country">
+            Country:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="country"   formControlName="country">
+        </div>
+    </div>
+
+    <!-- Duration -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="duration">
+            Duration:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="duration"   formControlName="duration">
+        </div>
+    </div>
+
+    <!--Training Cost:n -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="trainingCost">
+            Training Cost:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="trainingCost"   formControlName="trainingCost">
+        </div>
+    </div>
+
+    <!--Arrange Organization -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="arrangeOrganization">
+            Arrange Organization:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="arrangeOrganization"   formControlName="arrangeOrganization">
+        </div>
+    </div>
+
+    <!--Venue -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="venue">
+            Venue:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="venue"   formControlName="venue">
+        </div>
+    </div>
+
+    <!--City -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="city">
+            City:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="city"   formControlName="city">
+        </div>
+    </div>
+
+    <!--Year -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="year">
+            Year:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="year"   formControlName="year">
+        </div>
+    </div>
+
+    <!--Cost Bearar:	 -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="costBearar">
+            Cost Bearar:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="costBearar"   formControlName="costBearar">
+        </div>
+    </div>
+
+
+    <div></div>
+    <div></div>
+
+
+    <button class="w-25 h-10 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-1.5 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800" type="submit">Add</button>
+
+</form>
+
+<!-- list to showws -->
+
+<br>
+
+<div class="relative overflow-x-auto" *ngIf="showList">
+<h3 class="text-xl font-bold">Employee Training List</h3>
+
+<br>
+<div class="relative overflow-x-auto">
+
+</div>
+<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <tr>
+      <th scope="col" class="px-6 py-3">topic</th>
+      <th scope="col" class="px-6 py-3">area </th>
+      <th scope="col" class="px-6 py-3">country </th>
+      <th scope="col" class="px-6 py-3">duration </th>
+      <th scope="col" class="px-6 py-3">trainingCost</th>
+      <th scope="col" class="px-6 py-3">arrangeOrganization</th>
+      <th scope="col" class="px-6 py-3">venue</th>
+      <th scope="col" class="px-6 py-3">city</th>
+      <th scope="col" class="px-6 py-3">year</th>
+      <th scope="col" class="px-6 py-3">costBearar</th>
+      <th scope="col" class="px-6 py-3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200" *ngFor="let employeeTrainInfo of employeeTrainingList; let i = index">
+      <td class="px-6 py-4">{{employeeTrainInfo.topic }}</td>
+      <td class="px-6 py-4">{{employeeTrainInfo.area}}</td>
+      <td class="px-6 py-4">{{employeeTrainInfo.country}}</td>
+      <td class="px-6 py-4">{{employeeTrainInfo.duration}}</td>
+      <td class="px-6 py-4">{{employeeTrainInfo.trainingCost}}</td>
+      <td class="px-6 py-4">{{employeeTrainInfo.arrangeOrganization}}</td>
+      <td class="px-6 py-4">{{employeeTrainInfo.venue}}</td>
+      <td class="px-6 py-4">{{employeeTrainInfo.city}}</td>
+      <td class="px-6 py-4">{{employeeTrainInfo.year}}</td>
+      <td class="px-6 py-4">{{employeeTrainInfo.costBearar}}</td>
+      <td>
+        <button type="button" (click)="editEmployee(i)" class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800">Edit</button>
+        
+        <!-- updateb utton -->
+        <!-- <button type="button" (click)="updateEmployee()" class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800">Update</button> -->
+        
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- other feautes -->
+
+<button class="w-25 h-10 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800" type="submit">Save</button>
+
+<button type="button"  class="w-25 h-10 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">New</button>
+        <button class="w-25 h-10  text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800" >Delete</button>
+
+<button class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" (click)="showEmployees()">Show Employees in Console</button>
+
+<button (click)="clearAllEmployees()" class="btn btn-danger ml-2">Clear All Employee</button>

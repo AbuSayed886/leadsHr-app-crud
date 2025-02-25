@@ -1,0 +1,394 @@
+
+<h2 class="text-xl font-bold">Employee Additional Info</h2>
+<br>
+
+<form class="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-4" [formGroup]="employeeAdditionalInfo">
+    
+    <!-- Facebook ID Link: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="facebookIDLink">
+            Facebook ID Link:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="facebookIDLink"   formControlName="facebookIDLink">
+        </div>
+            <div *ngIf="employeeAdditionalInfo.get('facebookIDLink')?.hasError('required') && employeeAdditionalInfo.get('facebookIDLink')?.touched">
+                <span class="text-red-500 text-sm">This is Required!</span>
+            </div>
+    </div>
+
+    <!-- Favorite Color: -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="favoriteColor">
+            Favorite Color:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="favoriteColor"  formControlName="favoriteColor">
+        </div>
+    </div>
+
+    <!-- Professional Membership Information: -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="professionalMembershipInformation">
+            Professional Membership Information:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="professionalMembershipInformation"  formControlName="professionalMembershipInformation">
+        </div>
+    </div>
+
+    <!-- Willingness to Donate Blood: -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="willingnessToDonateBlood">
+            Willingness to Donate Blood:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="willingnessToDonateBlood"  formControlName="willingnessToDonateBlood">
+        </div>
+    </div>
+
+    <!-- Existing Tax Zone -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="existingTaxZone">
+            Existing Tax Zone:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="existingTaxZone"  formControlName="existingTaxZone">
+        </div>
+    </div>
+
+    <!-- Ethnic: -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="ethnic">
+            Ethnic:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="ethnic"  formControlName="ethnic">
+        </div>
+    </div>
+
+    <!-- Driving License Issue Date: -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="drivingLicenseIssueDate">
+            Driving License Issue Date:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="drivingLicenseIssueDate"  formControlName="drivingLicenseIssueDate">
+        </div>
+    </div>
+
+    <!-- Flex cube User ID:: -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="flexCubeUserID">
+            Flex cube User ID:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="flexCubeUserID"  formControlName="flexCubeUserID">
+        </div>
+    </div>
+
+    <!-- P.C. User ID -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="pcUserID">
+            P.C. User ID:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="pcUserID"  formControlName="pcUserID">
+        </div>
+    </div>
+
+    <!-- Food Liking: -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="foodLiking">
+            Food Liking:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="foodLiking"  formControlName="foodLiking">
+        </div>
+    </div>
+
+    <!-- Dual Citizenship Status: -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="dualCitizenshipStatus">
+            Dual Citizenship Status:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="dualCitizenshipStatus"  formControlName="dualCitizenshipStatus">
+        </div>
+    </div>
+
+    <!-- Country Name (Dual Citizenship) -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="countryNameDualCitizenship">
+            Country Name (Dual Citizenship):
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="countryNameDualCitizenship"  formControlName="countryNameDualCitizenship">
+        </div>
+    </div>
+
+    <!-- Country Visited: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="countryVisited">
+            Country Visited:
+          </label>
+        </div>
+        <div>
+          <textarea class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="countryVisited"  formControlName="countryVisited"></textarea>
+        </div>
+    </div>
+
+    <!-- Last Medical Checkup: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="lastMedicalCheckup">
+            Last Medical Checkup:
+          </label>
+        </div>
+        <div>
+          <textarea class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="lastMedicalCheckup"  formControlName="lastMedicalCheckup"></textarea>
+        </div>
+    </div>
+
+    <!-- Parent's Medical History:: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="parentsMedicalHistory">
+            Parent's Medical History:
+          </label>
+        </div>
+        <div>
+          <textarea class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="parentsMedicalHistory"  formControlName="parentsMedicalHistory"> </textarea>
+        </div>
+    </div>
+
+    <!-- Hobby: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="hobby">
+            Hobby:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="hobby"  formControlName="hobby">
+        </div>
+    </div>
+
+    <!-- LinkedIn ID Link: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="linkedInIDLink">
+            LinkedIn ID Link:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="linkedInIDLink"  formControlName="linkedInIDLink">
+        </div>
+
+        <div *ngIf="employeeAdditionalInfo.get('linkedInIDLink')?.hasError('required') && employeeAdditionalInfo.get('linkedInIDLink')?.touched">
+            <span class="text-red-500 text-sm">This is Required!</span>
+        </div>
+        
+        <div *ngIf="employeeAdditionalInfo.get('linkedInIDLink')?.hasError('pattern') && employeeAdditionalInfo.get('linkedInIDLink')?.touched">
+            <span class="text-red-500 text-sm">This is gmail.com!</span>
+        </div>
+
+    </div>
+    
+    <!-- Professional Membership Details -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="professionalMembershipDetails">
+            Professional Membership Details:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="professionalMembershipDetails"  formControlName="professionalMembershipDetails">
+        </div>
+    </div>
+
+    <!-- E-Tin No: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="eTinNo">
+            E-Tin No:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="eTinNo"  formControlName="eTinNo">
+        </div>
+        <div *ngIf="employeeAdditionalInfo.get('eTinNo')?.hasError('required') && employeeAdditionalInfo.get('eTinNo')?.touched">
+            <span class="text-red-500 text-sm">This is Required!</span>
+        </div>
+        
+        <div *ngIf="employeeAdditionalInfo.get('eTinNo')?.hasError('pattern') && employeeAdditionalInfo.get('eTinNo')?.touched">
+            <span class="text-red-500 text-sm">This is no vaild number.</span>
+        </div>
+    </div>
+
+    <!-- Existing Tax Circle: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="existingTaxCircle">
+            Existing Tax Circle:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="existingTaxCircle"  formControlName="existingTaxCircle">
+        </div>
+    </div>
+
+    <!-- Driving License Type:: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="drivingLicenseType">
+            Driving License Type:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="drivingLicenseType"  formControlName="drivingLicenseType">
+        </div>
+    </div>
+
+    <!-- driving Licens Expiry Date: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="drivingLicensExpiryDate">
+            Driving Licens Expiry Date:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
+          type="date" id="drivingLicensExpiryDate"  formControlName="drivingLicensExpiryDate">
+        </div>
+    </div>
+
+    <!-- Flex cube Authorizer ID: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="flexcubeAuthorizerID">
+            Flex cube Authorizer ID:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="flexcubeAuthorizerID"  formControlName="flexcubeAuthorizerID">
+        </div>
+    </div>
+
+    <!-- P.C. IP Address:: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="pcIPAddress">
+            P.C. IP Address:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="pcIPAddress"  formControlName="pcIPAddress">
+        </div>
+    </div>
+
+    <!-- 	Overall Score (IELTS/TOFEL):: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="overallScoreIELTSTOFEL">
+            Overall Score (IELTS/TOFEL):
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="overallScoreIELTSTOFEL"  formControlName="overallScoreIELTSTOFEL">
+        </div>
+    </div>
+
+    <!-- 	PR Status:: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="prStatus">
+            PR Status:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="prStatus"  formControlName="prStatus">
+        </div>
+    </div>
+
+    <!-- Dual Passport Number -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="dualPassportNumber">
+            Dual Passport Number:
+          </label>
+        </div>
+        <div>
+          <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="dualPassportNumber"  formControlName="dualPassportNumber">
+        </div>
+    </div>
+
+    <!-- Employee Medical History: -->
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="employeeMedicalHistory">
+            Employee Medical History:
+          </label>
+        </div>
+        <div>
+          <textarea class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="employeeMedicalHistory"  formControlName="employeeMedicalHistory"></textarea>
+        </div>
+    </div>
+
+    <!-- Major Operation: -->
+
+    <div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700" for="majorOperation">
+            Major Operation:
+          </label>
+        </div>
+        <div>
+          <textarea class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="majorOperation"  formControlName="majorOperation"></textarea>
+        </div>
+    </div>
+
+</form>
+
+<br>
+<button class="w-25 h-10 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800" (click)="addEmployee()" type="submit">Save</button>
+
+ <button class="w-25 h-10  text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800" >Delete</button>
+
+ <button class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800" (click)="showEmployees()">Show Employees in Console</button>
