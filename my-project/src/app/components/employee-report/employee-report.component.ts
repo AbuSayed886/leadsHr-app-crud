@@ -69,7 +69,7 @@ export class EmployeeReportComponent implements OnInit {
       const employeeData = [employee.emplId, employee.employeeName, employee.employeeDesignation];
       tableRows.push(employeeData);
     });
-
+    
     autoTable(doc, {
       head: [tableColumn],
       body: tableRows,

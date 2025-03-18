@@ -14,73 +14,78 @@ import { EmployeeDesignationComponent } from './components/employee-designation/
 import { EmployeeEducationV2Component } from './components/employee-education-v2/employee-education-v2.component';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { EmployeeReportComponent } from './components/employee-report/employee-report.component';
+import { ReportPDFComponent } from './components/report-pdf/report-pdf.component';
 
 export const routes: Routes = [
     {
-        path:'account-c', 
+        path:'account-c',
         component: AccountCComponent
     },
 
     {
-        path:'employee-c', 
+        path:'employee-c',
         component: EmployeeCComponent
     },
 
     {
-        path:'dashboard-c', 
+        path:'dashboard-c',
         component: DashboardCComponent
     },
     {
-        path:'app-employee-profile', 
+        path:'app-employee-profile',
         component: EmployeeProfileComponent
     },
     {
-        path:'app-employee-education', 
+        path:'app-employee-education',
         component: EmployeeEducationComponent
     },
     {
-        path:'app-employee-training', 
+        path:'app-employee-training',
         component: EmployeeTrainingComponent
     },
     {
-        path:'app-employee-additional-info', 
+        path:'app-employee-additional-info',
         component: EmployeeAdditionalInfoComponent
     },
     {
-        path:'app-employee-spouse', 
+        path:'app-employee-spouse',
         component: EmployeeSpouseComponent
     },
     {
-        path:'app-employee-education-rf', 
+        path:'app-employee-education-rf',
         component: EmployeeEducationRFComponent
     },
     {
-        path:'app-employee-experience', 
+        path:'app-employee-experience',
         component: EmployeeExperienceComponent
     },
     {
-        path:'app-all-data-test', 
+        path:'app-all-data-test',
         component: AllDataTestComponent
     },
     {
-        path:'app-employee-designation', 
+        path:'app-employee-designation',
         component: EmployeeDesignationComponent
     },
     {
-        path:'app-employee-education-v2', 
+        path:'app-employee-education-v2',
         component: EmployeeEducationV2Component
     },
     {
-        path:'app-employee-list', 
+        path:'app-employee-list',
         component: EmployeeListComponent
     },
     {
-        path:'app-employee-report', 
+        path:'app-employee-report',
         component: EmployeeReportComponent
     },
     {
-        path: '', redirectTo: 'app-employee-list', pathMatch: 'full' 
+      path:'pdf-report',
+      component: ReportPDFComponent
     },
-    
-  
+    {
+        path: '', redirectTo: 'app-employee-list', pathMatch: 'full'
+    },
+
+
 ];
