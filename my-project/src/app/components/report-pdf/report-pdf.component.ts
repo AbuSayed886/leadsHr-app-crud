@@ -34,7 +34,7 @@ export class ReportPDFComponent implements OnInit{
     console.log("hit");
     console.log("", this.employeeInfoList);
 
-    //const pageWidth = orientation === 'portrait' ? 595.28 : 842; // A4 width dynamically
+    const pageWidth = orientation === 'portrait' ? 595.28 : 842; // A4 width dynamically
     //const imageHeight = 72;
     //const margins = 72; // Left and right margins
     const lastEmployee = this.employeeInfoList.length > 0 ? this.employeeInfoList[this.employeeInfoList.length - 1] : { emplId: 'N/A', employeeName: 'N/A' };
@@ -138,6 +138,23 @@ export class ReportPDFComponent implements OnInit{
           ]
         };
       },
+      background: (currentPage: number, pageCount: number) => {
+        const pageWidth = orientation === 'portrait' ? 595.28 : 841.89; // A4 width
+        const pageHeight = orientation === 'portrait' ? 841.89 : 595.28; // A4 height
+        const imageWidth = 300; // Image width
+        const imageHeight = 300; // Image height
+        const logoOpacity = 0.1; // Transparency
+
+        return {
+          image: this.getBase64Image(), // Your base64 image function
+          width: imageWidth,
+          height: imageHeight,
+          opacity: logoOpacity,
+          margin: [(pageWidth - imageWidth) / 2, (pageHeight - imageHeight) / 2, 0, 0], // Center image
+          alignment: 'center'
+        };
+      },
+
       watermark: { text: 'LEADS', color: 'blue', opacity: 0.05, bold: true, italics: false },
       content: [
         {
