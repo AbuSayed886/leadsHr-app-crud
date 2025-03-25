@@ -34,16 +34,17 @@ export class ReportPDFComponent implements OnInit{
     console.log("hit");
     console.log("", this.employeeInfoList);
 
-    const pageWidth = orientation === 'portrait' ? 595.28 : 842; // A4 width dynamically
-    const imageHeight = 72;
-    const margins = 72; // Left and right margins
+    //const pageWidth = orientation === 'portrait' ? 595.28 : 842; // A4 width dynamically
+    //const imageHeight = 72;
+    //const margins = 72; // Left and right margins
+    const lastEmployee = this.employeeInfoList.length > 0 ? this.employeeInfoList[this.employeeInfoList.length - 1] : { emplId: 'N/A', employeeName: 'N/A' };
 
     const tableBody: any = [
       [
-        { text: 'SL', style: 'tableHeader', margin: [0, 20, 0, 0] },
-        { text: 'Employee ID', style: 'tableHeader', margin: [0, 20, 0, 0] },
-        { text: 'Employee Name', style: 'tableHeader', margin: [0, 20, 0, 0] },
-        { text: 'Employee Designation', style: 'tableHeader', margin: [0, 20, 0, 0] },
+        { text: 'SL', style: 'tableHeader', margin: [0, 5, 0, 5], fontSize: 13, bold:true ,alignment: 'center' },
+        { text: 'Employee ID', style: 'tableHeader', margin: [0, 5, 0, 5],fontSize: 13 , bold:true, alignment: 'center' },
+        { text: 'Employee Name', style: 'tableHeader', margin: [0, 5, 0, 5],fontSize: 13, bold:true , alignment: 'center'},
+        { text: 'Employee Designation', style: 'tableHeader', margin: [0, 5, 0, 5], fontSize: 13, bold:true, alignment: 'center' },
       ],
       ...this.employeeInfoList.map((emp, index) => [
         { text: (index + 1).toString(), fontSize: 12 },
@@ -53,43 +54,134 @@ export class ReportPDFComponent implements OnInit{
       ])
     ];
 
+    const tableBody2: any = [
+      [
+        { text: 'Stub (Row heading)', rowSpan: 3, bold: true },
+        { text: 'Caption (Column heading)', colSpan: 3, alignment: 'center', bold: true },
+        '',
+        '',
+        { text: 'Total (Rows)', rowSpan: 3, alignment: 'center', bold: true }
+      ],
+      [
+        '',
+        { text: 'Subheading', colSpan: 2, alignment: 'center', bold: true },
+        '',
+        { text: 'Subheading', alignment: 'center', bold: true },
+        ''
+      ],
+      [
+        '',
+        { text: 'Column heading', alignment: 'center' },
+        { text: 'Column heading', alignment: 'center' },
+        { text: 'Column heading', alignment: 'center' },
+        { text: 'Column heading', alignment: 'center' }
+      ],
+      // Employee data rows dynamically
+      ...this.employeeInfoList.map((emp, index) => [
+        { text: `Employee ${index + 1}`, bold: true },
+        { text: emp.emplId, alignment: 'center' },
+        { text: emp.employeeName, alignment: 'center' },
+        { text: emp.employeeDesignation, alignment: 'center' },
+        { text: 'N/A', alignment: 'center' } // Placeholder for total row
+      ]),
+      // Total Row
+      [
+        { text: 'Total (Columns)', bold: true },
+        { text: '', colSpan: 4 } // Empty total row
+      ]
+    ];
+
     const documentDefinition: any = {
       pageSize: 'A4',
       pageOrientation: orientation,
-      pageMargins: [72, 72, 36, 36],
+      pageMargins: [72, 77, 36, 36], //here 1 inch = 72 points , why top 77 becuse for gap 72 (gap 5)
 
       header: (currentPage: number, pageCount: number) => {
         return [
           // Image stretched to full width, centered on the page
+
           {
             image: this.getBase64Image(),
             width: 850,  // Adjust the width as necessary for your image size
             height: 72,  // Height of the image
             alignment: 'center',
-            margin: [0, 0, 0, 20], // Space below the image to avoid overlap with content
+            margin: [0, 0, 0, 20],
+           // Space below the image to avoid overlap with content
           },
-          // Date text positioned below the image
-          {
-            text: 'Date: ' + new Date().toLocaleDateString(),
-            alignment: 'right',  // Right-align the date
-            fontSize: 10,
-            margin: [0, -50, 20, 0], // Adjust the margin as needed (above the image)
-          },
+
         ];
       },
 
-
+      // footer: (currentPage: number, pageCount: number) => {
+      //   return {
+      //     text: `Page ${currentPage} of ${pageCount}`,
+      //     alignment: 'right',
+      //     fontSize: 10,
+      //     margin: [0, 0, 40, 10]
+      //   };
+      // },
       footer: (currentPage: number, pageCount: number) => {
         return {
-          text: `Page ${currentPage} of ${pageCount}`,
-          alignment: 'right',
-          fontSize: 10,
-          margin: [0, 0, 40, 10]
+          columns: [
+              {
+                  text: 'Leadsoft', // Replace with your actual company name
+                  alignment: 'left',
+                  fontSize: 10,
+                  margin: [75, 0, 0, 10] // Left margin to push it inside the page
+              },
+              {
+                  text: `Page ${currentPage} of ${pageCount}`,
+                  alignment: 'right',
+                  fontSize: 10,
+                  margin: [0, 0, 40, 10] // Right margin
+              }
+          ]
         };
       },
-
+      watermark: { text: 'LEADS', color: 'blue', opacity: 0.05, bold: true, italics: false },
       content: [
+        {
+          //alignment: 'justify',
+          columns: [
+            {
+              image: this.getBase64Image(),
+              width: 50,  // Adjust the width as necessary for your image size
+              height: 50,  // Height of the image
+              alignment: 'left',
+              margin: [0, 10, 0, 40],
+             // Space below the image to avoid overlap with content
+            },
+            {
+              text: 'LeadSoft',  // Display current date
+              alignment: 'center',  // Align date to the right
+              fontSize: 16,
+              width: '*',
+              margin: [150, 20, 0, 30],  // Position the date anywhere on the page (adjust x and y)
+            },
+            {
+              text: 'Date: ' + new Date().toLocaleDateString(),  // Display current date
+              alignment: 'right',  // Align date to the right
+              fontSize: 10,
+              margin: [0, 20, 10, 30],  // Position the date anywhere on the page (adjust x and y)
+            }
+          ]
+        },
 
+        {
+          alignment: 'justify',
+          columns: [
+            {
+              width: '*',
+              margin: [0, 0, 20, 0],
+              text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Malit profecta versatur nomine ocurreret multavit, officiis viveremus aeternum superstitio suspicor alia nostram, quando nostros congressus susceperant concederetur leguntur iam, vigiliae democritea tantopere causae, atilii plerumque ipsas potitur pertineant multis rem quaeri pro, legendum didicisse credere ex maluisset per videtis. Cur discordans praetereat aliae ruinae dirigentur orestem eodem, praetermittenda divinum. Collegisti, deteriora malint loquuntur officii cotidie finitas referri doleamus ambigua acute. Adhaesiones ratione beate arbitraretur detractis perdiscere, constituant hostis polyaeno. Diu concederetur.'
+            },
+            {
+              width: '*',
+              margin: [0, 0, 20, 0],
+              text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Malit profecta versatur nomine ocurreret multavit, officiis viveremus aeternum superstitio suspicor alia nostram, quando nostros congressus susceperant concederetur leguntur iam, vigiliae democritea tantopere causae, atilii plerumque ipsas potitur pertineant multis rem quaeri pro, legendum didicisse credere ex maluisset per videtis. Cur discordans praetereat aliae ruinae dirigentur orestem eodem, praetermittenda divinum. Collegisti, deteriora malint loquuntur officii cotidie finitas referri doleamus ambigua acute. Adhaesiones ratione beate arbitraretur detractis perdiscere, constituant hostis polyaeno. Diu concederetur.'
+            }
+          ]
+        },
         {
           text: 'Employee Report',
           fontSize: 22,
@@ -99,13 +191,41 @@ export class ReportPDFComponent implements OnInit{
         },
 
         {
+          text: 'Date: ' + new Date().toLocaleDateString(),  // Display current date
+          alignment: 'right',  // Align date to the right
+          fontSize: 10,
+          margin: [0, 0, 10, 10],  // Position the date anywhere on the page (adjust x and y)
+        },
+        {
+          text: 'This paragraph uses header style and extends the alignment property',
+          style: 'header',
+          alignment: 'center'
+        },
+        {
+          text: [
+            'This paragraph uses header style and overrides bold value setting it back to false.\n',
+            'Header style in this example sets alignment to justify, so this paragraph should be rendered \n',
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Malit profecta versatur nomine ocurreret multavit, officiis viveremus aeternum superstitio suspicor alia nostram, quando nostros congressus susceperant concederetur leguntur iam, vigiliae democritea tantopere causae, atilii plerumque ipsas potitur pertineant multis rem quaeri pro, legendum didicisse credere ex maluisset per videtis. Cur discordans praetereat aliae ruinae dirigentur orestem eodem, praetermittenda divinum. Collegisti, deteriora malint loquuntur officii cotidie finitas referri doleamus ambigua acute. Adhaesiones ratione beate arbitraretur detractis perdiscere, constituant hostis polyaeno. Diu concederetur.'
+            ],
+          style: 'header',
+          bold: false
+        },
+        {
           table: {
             headerRows: 1,
-            widths: ['10%', '30%', '30%', '30%'],
+            widths: ['10%', '30%', '30%', '30%'], // Widths of the columns
             body: tableBody,
+            margin: [0, 50, 0, 40],
           },
-          layout: 'lightHorizontalLines',
+          //layout: 'lightHorizontalLines',
+          layout: {
+            hLineWidth: () => 1,
+            vLineWidth: () => 1,
+            hLineColor: () => 'black',
+            vLineColor: () => 'black',
+          },
           margin: [0, 20, 0, 40], // Ensure spacing below header
+          //pageBreak: 'before',
         },
 
         {
@@ -116,6 +236,55 @@ export class ReportPDFComponent implements OnInit{
           alignment: 'center',
           margin: [0, 30, 0, 0],
         },
+        {
+          text: 'This is absolute positioned text',
+          //absolutePosition: { x: 220, y: 110 }, // X = 150px from left, Y = 100px from top
+          margin: [0, 30, 0, 0],
+          fontSize: 14,
+          bold: true,
+          alignment: 'center',
+        },
+        {
+      text: 'Table Number: ........',
+      fontSize: 12,
+      bold: true,
+      margin: [0, 0, 0, 5]
+    },
+    {
+      text: 'Title: ........',
+      fontSize: 12,
+      bold: true,
+      margin: [0, 0, 0, 5]
+    },
+    {
+      text: '(Head note, if any)',
+      fontSize: 10,
+      italics: true,
+      margin: [0, 0, 0, 10]
+    },
+    {
+      table: {
+        headerRows: 3, // Ensures top 3 rows repeat on new pages
+        widths: ['20%', '20%', '20%', '20%', '20%'], // Adjust column widths
+        body: tableBody2
+      },
+      layout: {
+        hLineWidth: () => 1, // Horizontal line width
+        vLineWidth: () => 1, // Vertical line width
+        hLineColor: () => 'black',
+        vLineColor: () => 'black'
+      },
+      margin: [0, 10, 0, 10] // Space before and after table
+    },
+    {
+      text: `Source no: ${lastEmployee.emplId}`,
+      fontSize: 10,
+      margin: [0, 10, 0, 5]
+    },
+    {
+      text: `Footnote: ${lastEmployee.employeeName}`,
+      fontSize: 10
+    }
       ]
     };
 
